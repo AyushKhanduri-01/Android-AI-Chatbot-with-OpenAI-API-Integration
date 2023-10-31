@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm=new LinearLayoutManager(this);
         llm.setStackFromEnd(true);
         recyclerview.setLayoutManager(llm);
+        addToChat("Hi there! How can I help you?","bot");
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                addResponse("Failed to load response"+e.getMessage());
+                addResponse("Failed to load response");
             }
 
             @Override
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                      }
                  }
                  else{
-                     addResponse("Failed to load response "+response.body().string());
+                     addResponse("Failed to load response ");
                  }
             }
         });
