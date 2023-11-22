@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="7dp"
+    android:padding="2dp"
     >
 
     <LinearLayout
@@ -20,10 +20,11 @@
             android:id="@+id/leftmessage"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textSize="16dp"
+         android:textSize="15dp"
          android:textColor="@color/white"
-            android:textIsSelectable="true"
-         android:padding="4dp"/>
+         android:paddingTop="0dp"
+            android:textIsSelectable="true"/>
+
 
     </LinearLayout>
     <LinearLayout
@@ -41,9 +42,9 @@
             android:id="@+id/rightmessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="15dp"
             android:textColor="@color/white"
-            android:padding="4dp"/>
+           />
 
     </LinearLayout>
 </RelativeLayout>

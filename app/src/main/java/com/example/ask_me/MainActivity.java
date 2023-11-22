@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -29,7 +30,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
    private RecyclerView recyclerview;
    private EditText input;
    private Button send;
@@ -92,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
     void callApi(String ques)  {
         JSONObject jsonbody = new JSONObject();
         try {
-            jsonbody.put("model","text-davinci-003");
+            jsonbody.put("model","gpt-3.5-turbo-instruct");
             jsonbody.put("prompt",ques);
-            jsonbody.put("max_tokens",4000);
-            jsonbody.put("temperature",2);
+            jsonbody.put("max_tokens",350);
+            jsonbody.put("temperature",0.2);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -104,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonbody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .addHeader("Authorization","Bearer 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")
+                .addHeader("Authorization","Bearer ************************************************************")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                addResponse("Failed to load response");
+                addResponse("Failed to load response" );
             }
 
             @Override
